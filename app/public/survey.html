@@ -203,5 +203,78 @@
 
      </div>
  </div>
+<script type="text/javascript">
+
+    // let config = {
+    //     '.chosen-select': {},
+    //     '.chosen-select-deselect': {allow_single_deselect: true},
+    //     '.chosen-select-no-single': {disable_search_threshold: 10},
+    //     '.chosen-selecet-no-results': {no_results_text: "oh no, nothing found!"},
+    //     '.chosen-select-width': {width:'95%'}
+    // };
+
+    // for (let selector in config) {
+    //     $(selector).chosen(config[selector]);
+    // };
+
+    // capture the form elements. when the user clicks submit then validate form
+    $('#submit').on('click', function() {
+
+        // form validating. if the fields labeled form control are empty then it's false
+        function validateForm() {
+            let isValid = true;
+            $('.form-control').each(function() {
+                
+                if ($(this).val() === "") {
+                    isValid = false
+                }
+            });
+            // form with chosen-select if empty mark it false
+            $('.chosen-select').each(function() {
+
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+// if the form valide then create object called user data, which is user's information
+        if (validateForm()) {
+            let userData = {
+                name: $('#name').val(),
+                photo: $('#photo').val(),
+                scores: [
+                    $('#q1').val(),
+                    $('#q2').val(),
+                    $('#q3').val(),
+                    $('#q4').val(),
+                    $('#q5').val(),
+                    $('#q6').val(),
+                    $('#q7').val(),
+                    $('#q8').val(),
+                    $('#q9').val(),
+                    $('#q10').val()
+
+                ]
+            };
+            // grabs the URL of the website
+            let currentURL = window.location.origin;
+            // then grab URL and post to /api/friends
+            $.post(currentURL = '/api/friends', userData, function(data) {
+                // grab results from ajax post
+                $('#match-name').text(data.name);
+                $('#match-img').attr('src', data.photo);
+
+                $('#results-modal').modal('toggle');
+            });
+        } else {
+            alert("fill all fields before you submit")
+        }
+    });
+
+
+</script>
+
+
 </body>
 </html>
