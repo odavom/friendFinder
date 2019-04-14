@@ -194,7 +194,7 @@
              </div>
              <div class="modal-body">
                  <h2 id="match-name"></h2>
-                 <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+                 <img id="match-img" src="" alt="">
              </div>
              <div class="modal-footer">
                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -205,17 +205,17 @@
  </div>
 <script type="text/javascript">
 
-    // let config = {
-    //     '.chosen-select': {},
-    //     '.chosen-select-deselect': {allow_single_deselect: true},
-    //     '.chosen-select-no-single': {disable_search_threshold: 10},
-    //     '.chosen-selecet-no-results': {no_results_text: "oh no, nothing found!"},
-    //     '.chosen-select-width': {width:'95%'}
-    // };
+    let config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {allow_single_deselect: true},
+        '.chosen-select-no-single': {disable_search_threshold: 10},
+        '.chosen-selecet-no-results': {no_results_text: "oh no, nothing found!"},
+        '.chosen-select-width': {width:'95%'}
+    };
 
-    // for (let selector in config) {
-    //     $(selector).chosen(config[selector]);
-    // };
+    for (let selector in config) {
+        $(selector).chosen(config[selector]);
+    };
 
     // capture the form elements. when the user clicks submit then validate form
     $('#submit').on('click', function() {

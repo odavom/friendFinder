@@ -9,8 +9,7 @@ let path = require('path');
 // Set initial port
 let PORT = process.env.PORT || 9000;
 
-// // create application/json parser
-// let jsonParser = bodyParser.json();
+
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse various differnt custon JSON types as JSON
@@ -21,11 +20,7 @@ app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
 app.use(bodyParser.text({ type: 'text/html' }));
 
 
-// bodyParser to interpret data sent to server
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.text());
-// app.use(bodyParser.json({ type: ''}))
+
 
 
 // ROUTER - points server to a series of route files.
